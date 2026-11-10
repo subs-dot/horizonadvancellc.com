@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="512" height="512">
+  <title>Horizon Advance</title>
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC371"/>
+      <stop offset=".55" stop-color="#F79A54"/>
+      <stop offset="1" stop-color="#EE6C4D"/>
+    </linearGradient>
+    <mask id="stripes" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+      <rect width="48" height="48" fill="#fff"/>
+      <rect y="23.2" width="48" height="2" fill="#000"/>
+      <rect y="27.6" width="48" height="2.6" fill="#000"/>
+    </mask>
+  </defs>
+  <!-- rising sun with two cut stripes -->
+  <path d="M7 33a17 17 0 0 1 34 0z" fill="url(#sun)" mask="url(#stripes)"/>
+  <!-- horizon line + reflection -->
+  <rect x="3" y="35" width="42" height="3.2" rx="1.6" fill="#0F3D4C"/>
+  <rect x="12" y="41" width="24" height="2.4" rx="1.2" fill="#0F3D4C" opacity=".45"/>
+</svg>
