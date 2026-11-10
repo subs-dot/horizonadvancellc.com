@@ -42,9 +42,18 @@
       menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       nav.classList.toggle('is-open', open);
     };
-    menuBtn.addEventListener('click', () => setOpen(menuBtn.getAttribute('aria-expanded') !== 'true'));
-    nav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    const isOpen = () => menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.addEventListener('click', () => {
+      const open = !isOpen();
+      setOpen(open);
+      // The links sit before the button in the page, so move keyboard focus into the menu
+      if (open) { const first = nav.querySelector('a'); if (first) first.focus(); }
+    });
+    // Any link in the header (menu links, "Talk to us", the logo) closes the menu...
+    menuBtn.closest('.header').addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+    // ...and so does a click anywhere outside the header
+    document.addEventListener('click', e => { if (isOpen() && !e.target.closest('.header')) setOpen(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen()) { setOpen(false); menuBtn.focus(); } });
   }
 
   /* Header border on scroll */
@@ -59,7 +68,7 @@
   const form = $('#matcher');
   if (form) {
     const PROGRAMS = {
-      mca:  { name: 'Merchant Cash Advance', why: 'The fastest option, often funded in 24 to 48 hours. Approval leans on your sales rather than your credit score, so newer businesses and imperfect credit are welcome.' },
+      mca:  { name: 'Merchant Cash Advance', why: 'The fastest option, often funded in 24 to 48 hours. Approval leans on your sales more than your credit score, so newer businesses and imperfect credit are welcome.' },
       term: { name: 'Term Loan', why: 'A lump sum with fixed, predictable payments over one to five years. A strong match for a planned investment with a clear payoff.' },
       loc:  { name: 'Line of Credit', why: 'Draw only what you need, when you need it, and pay only for what you use. Your available credit refills as you repay.' },
       sba:  { name: 'SBA Loan', why: 'Government-backed financing with the longest terms and some of the lowest rates available. It takes longer, but it\'s worth it if you qualify.' }
@@ -68,16 +77,19 @@
     const SCORES = {
       speed: { asap:  { mca: 3, loc: 2, term: 1, sba: -3 },
                month: { term: 2, loc: 2, mca: 1, sba: -1 },
-               wait:  { sba: 3, term: 2, loc: 1, mca: 0 } },
+               wait:  { sba: 3, term: 2, loc: 2, mca: 0 } },
       use:   { cash:   { loc: 3, mca: 2, term: 1, sba: 0 },
                equip:  { term: 3, sba: 2, mca: 1, loc: 0 },
                big:    { sba: 4, term: 2, mca: 0, loc: 0 },
                safety: { loc: 4, mca: 1, term: 0, sba: 0 } },
-      tib:   { new: { mca: 3, loc: 0, term: -1, sba: -2 },
-               mid: { mca: 1, term: 1, loc: 1, sba: 0 },
+      // SBA loans need roughly two years in business, so newer businesses are steered away from them
+      tib:   { new: { mca: 3, loc: 0, term: -1, sba: -6 },
+               mid: { mca: 1, term: 1, loc: 1, sba: -3 },
                est: { sba: 2, term: 2, loc: 1, mca: 0 } }
     };
     const ORDER = ['mca', 'term', 'loc', 'sba'];
+    // On equal points, suggest the lower-cost program first
+    const TIE_ORDER = ['loc', 'term', 'sba', 'mca'];
 
     const nameEl = $('#matchName'), whyEl = $('#matchWhy'), labelEl = $('#matchLabel');
     const runner = $('#matchRunner'), runnerName = $('#matchRunnerName');
@@ -114,7 +126,7 @@
         if (!v) continue;
         for (const [p, pts] of Object.entries(SCORES[q][v])) totals[p] += pts;
       }
-      const ranked = [...ORDER].sort((a, b) => totals[b] - totals[a] || ORDER.indexOf(a) - ORDER.indexOf(b));
+      const ranked = [...ORDER].sort((a, b) => totals[b] - totals[a] || TIE_ORDER.indexOf(a) - TIE_ORDER.indexOf(b));
       const best = ranked[0], second = ranked[1];
 
       labelEl.textContent = answered < 3 ? `Your match so far (${answered} of 3 answered)` : 'Your best fit';
@@ -143,7 +155,13 @@
     };
 
     form.addEventListener('change', update);
-    reset.addEventListener('click', () => { form.reset(); update(); });
+    reset.addEventListener('click', () => {
+      form.reset();
+      update();
+      // The button hides itself on reset, so hand keyboard focus back to the first question
+      const first = form.querySelector('input');
+      if (first) first.focus();
+    });
     update();
   }
 })();

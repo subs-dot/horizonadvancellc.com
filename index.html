@@ -9,13 +9,23 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Horizon Advance | Funding for what's next">
   <meta property="og:description" content="Merchant cash advances, term loans, lines of credit, and SBA loans. $10K to $3M.">
+  <meta property="og:url" content="https://horizonadvancellc.com/">
+  <meta property="og:site_name" content="Horizon Advance">
+  <meta property="og:image" content="https://horizonadvancellc.com/brand/logo-avatar.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Horizon Advance logo: a striped sun rising over the horizon">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://horizonadvancellc.com/">
+  <link rel="icon" type="image/png" href="brand/logo-mark.png">
+  <link rel="apple-touch-icon" href="brand/logo-avatar.png">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FFC371'/%3E%3Cstop offset='1' stop-color='%23EE6C4D'/%3E%3C/linearGradient%3E%3Cmask id='m'%3E%3Crect width='48' height='48' fill='%23fff'/%3E%3Crect y='23.2' width='48' height='2' fill='%23000'/%3E%3Crect y='27.6' width='48' height='2.6' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cpath d='M7 33a17 17 0 0 1 34 0z' fill='url(%23g)' mask='url(%23m)'/%3E%3Crect x='3' y='35' width='42' height='3.2' rx='1.6' fill='%230F3D4C'/%3E%3Crect x='12' y='41' width='24' height='2.4' rx='1.2' fill='%230F3D4C' opacity='.45'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FinancialService","name":"Horizon Advance","url":"https://www.horizonadvancellc.com/","email":"admin@horizonadvancellc.com","description":"Merchant cash advances, term loans, lines of credit, and SBA loans from $10,000 to $3,000,000 for U.S. small businesses.","areaServed":"US"}
+  {"@context":"https://schema.org","@type":"FinancialService","name":"Horizon Advance","url":"https://horizonadvancellc.com/","email":"admin@horizonadvancellc.com","description":"Merchant cash advances, term loans, lines of credit, and SBA loans from $10,000 to $3,000,000 for U.S. small businesses.","areaServed":"US"}
   </script>
 </head>
 <body>
@@ -50,6 +60,7 @@
       <a href="#compare">Compare</a>
       <a href="#sba">SBA loans</a>
       <a href="#faq">FAQ</a>
+      <a class="nav__contact" href="#contact">Talk to us</a>
     </nav>
     <div class="header__cta">
       <a class="btn btn--sun btn--sm" href="#contact">Talk to us</a>
@@ -103,7 +114,7 @@
         <a href="#prog-mca"><strong>Merchant cash advance</strong><span>Cash in as little as 24 hours, based on your sales</span><em>$10K – $3M &rarr;</em></a>
         <a href="#prog-term"><strong>Term loan</strong><span>A lump sum with fixed, predictable payments</span><em>$25K – $3M &rarr;</em></a>
         <a href="#prog-loc"><strong>Line of credit</strong><span>Draw what you need, pay only for what you use</span><em>$10K – $1M &rarr;</em></a>
-        <a href="#prog-sba"><strong>SBA loan</strong><span>Government-backed, longest terms, lowest rates</span><em>$50K – $3M &rarr;</em></a>
+        <a href="#prog-sba"><strong>SBA loan</strong><span>Government-backed, longest terms, some of the lowest rates</span><em>$50K – $3M &rarr;</em></a>
       </nav>
     </div>
   </section>
@@ -141,7 +152,7 @@
           <p class="program__tag">A lump sum up front, repaid in fixed installments over a set term. You know exactly what you'll pay and when you'll be done.</p>
           <dl class="facts">
             <div><dt>Amount</dt><dd>$25K – $3M</dd></div>
-            <div><dt>Funding</dt><dd>2–5 days</dd></div>
+            <div><dt>Funding</dt><dd>2–5 business days</dd></div>
             <div><dt>Term</dt><dd>1–5 years</dd></div>
           </dl>
           <p class="program__best"><strong>Best for:</strong> planned investments with a clear payoff, like equipment, a build-out, hiring, or refinancing costlier debt.</p>
@@ -220,11 +231,13 @@
           </fieldset>
         </form>
 
-        <div class="match__result" aria-live="polite">
-          <p class="match__label" id="matchLabel">Your match</p>
-          <h3 id="matchName">Pick an answer to start</h3>
-          <p id="matchWhy">Each answer narrows things down. You'll see your best fit here, along with a runner-up worth considering.</p>
-          <p class="match__runner" id="matchRunner" hidden>Also worth a look: <strong id="matchRunnerName"></strong></p>
+        <div class="match__result">
+          <div aria-live="polite" aria-atomic="true">
+            <p class="match__label" id="matchLabel">Your match</p>
+            <h3 id="matchName">Pick an answer to start</h3>
+            <p id="matchWhy">Each answer narrows things down. You'll see your best fit here, along with a runner-up worth considering.</p>
+            <p class="match__runner" id="matchRunner" hidden>Also worth a look: <strong id="matchRunnerName"></strong></p>
+          </div>
           <a class="btn btn--sun" id="matchCta" href="mailto:admin@horizonadvancellc.com?subject=Funding%20inquiry" data-mail>Email us about my options</a>
           <button type="button" class="match__reset" id="matchReset" hidden>Start over</button>
         </div>
@@ -245,7 +258,7 @@
       <ol class="steps">
         <li><h3>Tell us your goal</h3><p>Email us what you need the money for, how much, and when. A few details about your business is all it takes to start.</p></li>
         <li><h3>Compare real options</h3><p>We review your business against every program and lay out the amounts, terms, and total cost side by side, in plain English.</p></li>
-        <li><h3>Choose and get funded</h3><p>Pick the option that fits. Funding takes anywhere from a day for an advance to a few weeks for an SBA loan.</p></li>
+        <li><h3>Choose and get funded</h3><p>Pick the option that fits. Funding can take as little as a day for an advance, or 30 to 90 days for an SBA loan.</p></li>
       </ol>
     </div>
   </section>
@@ -260,7 +273,7 @@
         </div>
         <p>Speed, cost, and flexibility pull in different directions. This is where each program lands.</p>
       </div>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Program comparison table">
         <table class="compare">
           <thead>
             <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Merchant cash advance</th><th scope="col">Term loan</th><th scope="col">Line of credit</th><th scope="col">SBA loan</th></tr>
@@ -269,7 +282,7 @@
             <tr><th scope="row">Amount</th><td>$10K – $3M</td><td>$25K – $3M</td><td>$10K – $1M</td><td>$50K – $3M</td></tr>
             <tr><th scope="row">Time to funds</th><td>24–48 hours</td><td>2–5 business days</td><td>1–3 days to approve, then draw any time</td><td>30–90 days</td></tr>
             <tr><th scope="row">Term</th><td>3–18 months</td><td>1–5 years</td><td>Revolving; renews as you repay</td><td>Up to 10 years, or 25 for real estate</td></tr>
-            <tr><th scope="row">How you repay</th><td>A percentage of sales, or a fixed daily or weekly amount</td><td>Fixed weekly or monthly payments</td><td>Payments on what you've drawn only</td><td>Fixed monthly payments</td></tr>
+            <tr><th scope="row">How you repay</th><td>A percentage of sales, or a fixed daily or weekly amount</td><td>Fixed weekly or monthly payments</td><td>Payments on what you've drawn only</td><td>Monthly payments; rate can be fixed or variable</td></tr>
             <tr><th scope="row">Relative cost</th><td>Highest, priced with a factor rate</td><td>Moderate, priced with an interest rate</td><td>Moderate, interest on the balance used</td><td>Lowest; maximum rates capped by the SBA</td></tr>
             <tr><th scope="row">What matters most</th><td>Consistent revenue</td><td>Credit, revenue, and time in business</td><td>Credit and cash flow</td><td>Strong credit, 2+ years in business, full financials</td></tr>
             <tr><th scope="row">Best for</th><td>Speed and flexibility</td><td>Planned investments</td><td>Ongoing cash-flow gaps</td><td>Big, long-term moves</td></tr>
@@ -343,7 +356,7 @@
       </div>
       <details>
         <summary>Which program is right for my business?</summary>
-        <p>A quick rule of thumb: if you need money this week, look at a merchant cash advance. If you have a specific project with a clear payoff, consider a term loan. For ongoing cash-flow gaps, a line of credit works best. For big, long-term moves where you can wait, an SBA loan. Try the <a href="#match">Find your fit</a> tool, or just email us and we'll tell you.</p>
+        <p>A quick rule of thumb: if you need money this week, look at a merchant cash advance. If you have a specific project with a clear payoff, consider a term loan. For ongoing cash-flow gaps, a line of credit works best. For big, long-term moves where you can wait, an SBA loan. Try the <a href="#match">Find Your Fit</a> tool, or just email us and we'll tell you.</p>
       </details>
       <details>
         <summary>Can I qualify for more than one program?</summary>
@@ -355,7 +368,7 @@
       </details>
       <details>
         <summary>How fast can I get funded?</summary>
-        <p>A merchant cash advance can fund in as little as 24 to 48 hours. Term loans usually take a few business days, and lines of credit are often approved in one to three days. SBA loans are the slowest at roughly 30 to 90 days, but they offer the longest terms and lowest rates.</p>
+        <p>A merchant cash advance can fund in as little as 24 to 48 hours. Term loans usually take a few business days, and lines of credit are often approved in one to three days. SBA loans are the slowest at roughly 30 to 90 days, but they offer the longest terms and some of the lowest rates.</p>
       </details>
       <details>
         <summary>Is a merchant cash advance a loan?</summary>
@@ -400,7 +413,7 @@
         <p class="footer__blurb">Merchant cash advances, term loans, lines of credit, and SBA loans for growing small businesses.</p>
       </div>
       <div>
-        <h4>Programs</h4>
+        <h3>Programs</h3>
         <ul>
           <li><a href="#prog-mca">Merchant cash advance</a></li>
           <li><a href="#prog-term">Term loans</a></li>
@@ -409,7 +422,7 @@
         </ul>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h3>Explore</h3>
         <ul>
           <li><a href="#match">Find your fit</a></li>
           <li><a href="#compare">Compare programs</a></li>
@@ -418,7 +431,7 @@
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li><a href="mailto:admin@horizonadvancellc.com">admin@horizonadvancellc.com</a></li>
           <li><a href="#contact">Get started</a></li>
@@ -426,7 +439,7 @@
       </div>
     </div>
     <div class="footer__legal">
-      <p>Horizon Advance helps businesses access merchant cash advances, term loans, lines of credit, and SBA loans. Loans and lines of credit are subject to credit approval and underwriting, and not all applicants will qualify. Merchant cash advances are purchases of future receivables, not loans. SBA loans are made by SBA-approved lenders and partially guaranteed by the U.S. Small Business Administration; Horizon Advance is not affiliated with or endorsed by the SBA. Amounts, rates, terms, and timelines shown are typical ranges, not offers, and vary by program, lender, and business. Where required by state law, you will receive applicable cost disclosures with your offer. Find-your-fit results are general guidance, not a credit decision.</p>
+      <p>Horizon Advance helps businesses access merchant cash advances, term loans, lines of credit, and SBA loans. All financing is subject to approval and underwriting, and not all applicants will qualify. Merchant cash advances are purchases of future receivables, not loans. SBA loans are made by SBA-approved lenders and partially guaranteed by the U.S. Small Business Administration; Horizon Advance is not affiliated with or endorsed by the SBA. Amounts, rates, terms, and timelines shown are typical ranges, not offers, and vary by program, lender, and business. Where required by state law, you will receive applicable cost disclosures with your offer. Find Your Fit results are general guidance, not a credit decision.</p>
     </div>
     <div class="footer__bottom">
       <span>&copy; <span data-year>2026</span> Horizon Advance LLC. All rights reserved.</span>
